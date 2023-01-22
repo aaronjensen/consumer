@@ -2,26 +2,12 @@ require_relative '../automated_init'
 
 context "Position Store" do
   context "Location" do
-    context "Implemented" do
-      location = Controls::PositionStore::Location.example
+    stream_name = Controls::StreamName::Position.example
 
-      position_store = Controls::PositionStore.example do
-        attr_accessor :location
-      end
+    position_store = Consumer::Postgres::PositionStore.new(stream_name)
 
-      position_store.location = location
-
-      test do
-        assert(position_store.location == location)
-      end
-    end
-
-    context "Not Implemented" do
-      position_store = Controls::PositionStore.example
-
-      test do
-        assert(position_store.location.nil?)
-      end
+    test "Is the position stream name" do
+      assert(position_store.stream_name == stream_name)
     end
   end
 end

@@ -4,9 +4,8 @@ Gemfile.lock
 *.log
 *.gem
 gems
+gems_backup
 *scratch*
+*notes*
+loader.rb
 tmp
-lib/consumer/postgres.rb
-lib/consumer/postgres
-lib/consumer/_postgres.rb
-lib/consumer/_postgres
